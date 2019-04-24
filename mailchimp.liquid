@@ -1,0 +1,37 @@
+
+{{ 'jquery.ajaxchimp.min.js' | asset_url | script_tag }}
+<script>$('#form-selector').ajaxChimp();</script>
+
+{% if type == 'section' %}
+  {% assign display_first_name = section.settings.show_first_name %}
+  {% assign display_last_name = section.settings.show_last_name %}
+{% else %}
+  {% assign display_first_name = settings.display_first_name %}
+  {% assign display_last_name = settings.display_last_name %}
+{% endif %}
+
+<div class="newsletter {% if newsletter == 'center' %}center{% endif %} display-first-name--{{ display_first_name }} display-last-name--{{ display_last_name }}">
+  <form action="https://farrahandsloane.us10.list-manage.com/subscribe/post?u=51e33654ec257c7658aa43f83&amp;id=3f54dbd056" method="post" name="mc-embedded-subscribe-form" id="form-selector">
+    <label class="ressponse" for="email_input_id"></label>
+    {% if display_first_name %}
+    <input type="text" value="" class="newsletter-half first-name" name="FNAME" placeholder="{{ 'general.newsletter_form.subscriber_first_name' | t }}">
+    {% endif %}{% if display_last_name %}
+    <input type="text" value="" class="newsletter-half last-name" name="LNAME" placeholder="{{ 'general.newsletter_form.subscriber_last_name' | t }}">
+    {% endif %}
+    <input type="email" value="" name="EMAIL" class="contact_email" placeholder="{{ 'general.newsletter_form.placeholder' | t }}">
+    <input type="submit" value="{{ 'general.newsletter_form.submit' | t }}" class="action_button sign_up" name="subscribe" />
+  </form>
+</div>
+
+<style>
+  
+  label.ressponse {
+    display: block;
+    color: #fff;
+    width: 100%;
+    padding: 0 10px;
+}
+label.ressponse.error {
+    background: #d45a5a;
+}
+</style>
