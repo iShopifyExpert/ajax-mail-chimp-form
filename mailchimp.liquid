@@ -18,7 +18,7 @@
     {% endif %}{% if display_last_name %}
     <input type="text" value="" class="newsletter-half last-name" name="LNAME" placeholder="{{ 'general.newsletter_form.subscriber_last_name' | t }}">
     {% endif %}
-    <input type="email" value="" name="EMAIL" class="contact_email" placeholder="{{ 'general.newsletter_form.placeholder' | t }}">
+    <input type="email" id="email_input_id" value="" name="EMAIL" class="contact_email" placeholder="{{ 'general.newsletter_form.placeholder' | t }}">
     <input type="submit" value="{{ 'general.newsletter_form.submit' | t }}" class="action_button sign_up" name="subscribe" />
   </form>
 </div>
